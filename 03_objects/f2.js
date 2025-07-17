@@ -21,6 +21,7 @@ obj_const2.city2 = ["Mumbai", "Bengaluru", "Hyderabad"];
 // console.log("Object created using Object.create:", obj_const2);
 // console.log(obj_const2.city2?.[0]); // Optional chaining to avoid errors if city is undefined
 
-const obj_assign = Object.assign({}, obj_literal, obj_const);
-console.log("Object.assign result:", obj_assign);
+const obj_assign = Object.assign({}, obj_literal, obj_const2);
+// console.log("Object.assign result:", obj_assign);
 
+console.log(obj_assign.hasOwnProperty('age'));
