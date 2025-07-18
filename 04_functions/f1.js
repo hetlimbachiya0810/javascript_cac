@@ -12,7 +12,7 @@ console.log(add(5, 10)); //calling the function add with **arguments** 5 and 10.
 
 
 // Arrow function syntax, default parameters
-const multiply = (a, b = 1) => a * b;
+const multiply = (a, b = 1) => (a * b);
 console.log("Multiply function result:", multiply(5, 2)); // 10
 console.log("Multiply function result:", multiply(5)); // 5
 
