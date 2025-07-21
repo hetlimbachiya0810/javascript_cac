@@ -11,12 +11,29 @@ const results = document.querySelector('#results');
 
 function calBMI(height,weight) {
     if( height === '' || isNaN(height) || height <= 0){
-        console.log("Enter valid Height");
+        results.style.color = 'red';
+        results.innerHTML = "Enter valid Height";
     }else if (weight === '' || isNaN(weight) || weight <= 0){
-        console.log("Enter valid Weight");
+        results.style.color = 'red';
+        results.innerHTML = "Enter valid Weight";
     }else{
-        results.textContent = (weight / (height* height) * 10000).toFixed(2);
-    }    
+        results.innerHTML = (weight / (height* height) * 10000).toFixed(2);
+    }
+    const displayBMI = document.querySelector('#bmi-category');
+    displayBMI.innerHTML = results.innerHTML;
+    switch (true) {
+        case (results.innerHTML < 18.6):
+            displayBMI.innerHTML += " - Under Weight";
+            break;
+        case (results.innerHTML >= 18.6 && results.innerHTML <= 24.9):
+            displayBMI.innerHTML += " - Normal Range";
+            break;
+        case (results.innerHTML > 24.9):
+            displayBMI.innerHTML += " - Overweight";
+            break;
+        default:
+            break;
+    }
 }
 calBMI(height, weight);
 });
