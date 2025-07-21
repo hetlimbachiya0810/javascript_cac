@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <style>
+        .tagdi_body{
+            background-color: burlywood;
+            /* font-style: oblique; */
+            color: darkblue;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        #title{
+            background-color: lightseagreen;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .day{
+            text-align: center;
+            font-weight: bold;
+            color: #212121;
+            font-size: large;
+            padding: 0.2%;
+        }
+    </style>
+</head>
+
+
+<body class="tagdi_body">
+             <h1 id="title" class="heading">Data Object Model first session <span style="display: none;">Lorem ipsum dolor sit amet </span></h1>
+    <p>This is a simple HTML document to demonstrate the DOM.</p>
+    <p>We will manipulate this document using JavaScript.</p>
+    <input type="password" name="myname" id="passfield"> 
+    <h1>Days in a week</h1>
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+        <div class="day">Sunday</div>
+    </div>
+</body>
+
+<script>
+
+    // const parent = document.querySelector('.parent');
+    // console.log("parents:",parent);
+    // console.log(parent.firstElementChild);
+    // console.log(parent.children);
+    // console.log(parent.children[0]);
+    // const day = document.querySelector('.day');
+    // console.log(day.nextElementSibling.innerHTML);
+    // console.log(day.nextSibling.nextElementSibling.nextElementSibling.innerHTML);
+    // console.log("Nodes: ",parent.childNodes);
+
+    function addlanguage(langName) {
+        const li = document.createElement("li")
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.parent').appendChild(li)
+        
+    }
+    
+    addlanguage("Python");
+    addlanguage("Java");
+</script>
+
+</html>

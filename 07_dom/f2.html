@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <title>DOM</title>
+
+    <style>
+        /* A simple CSS reset for consistency */
+        body, h1, ul {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #121212;
+            color: #e0e0e0; 
+            font-family: 'Poppins', sans-serif; 
+            font-weight: 300;
+            line-height: 2; 
+            -webkit-font-smoothing: antialiased; /* Smoother text rendering */
+            -moz-osx-font-smoothing: grayscale;
+            
+            /* Layout */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Main Content Container */
+        .container {
+            background-color: #1e1e1e;
+            padding: 40px 70px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Heading Styling */
+        .heading {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 25px;
+            font-size: 2.5em; /* Responsive font size */
+        }
+
+        /* List Styling */
+        .parent {
+            list-style-type: none; /* Remove default bullet points */
+            font-size: 1.1em;
+        }
+
+        .lang {
+            background-color: #2a2a2a;
+            border-left: 4px solid #007bff; /* Accent color */
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            text-align: left;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;  
+        }
+
+        /* Interactive Hover Effect */
+        .lang:hover {
+            background-color: #007bff;
+            color: #ffffff;
+            transform: scale(1.03); /* Slightly enlarge on hover */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">DOM Manipulation</h1>
+        <ul class="parent">
+            <li class="lang">JavaScript</li>
+        </ul>
+    </div>
+
+    <script>
+        function addLanguage(langName) {
+            const li = document.createElement('li');
+            li.className = 'lang';
+            li.appendChild(document.createTextNode(langName));
+            document.querySelector('.parent').appendChild(li);
+        }
+
+        addLanguage('Python');
+        addLanguage('Java');
+        addLanguage('TypeScript');
+
+//Edit a language in the list
+        function editLang(newName, itemNum){
+            const newli = document.createElement('li');
+            newli.className = 'lang';
+            const oldli = document.querySelector(`li:nth-child(${itemNum})`)
+            newli.textContent = newName
+            document.querySelector('.parent').replaceChild(newli, oldli)
+        }
+        editLang('React', 1);
+
+// Remove a language from the list
+        function removeLang(itemNum) {
+            const targetli = document.querySelector(`li:nth-child(${itemNum})`)
+            targetli.remove()  
+        }
+        removeLang(4)
+        addLanguage('Node')
+    </script>
+</body>
+</html>
